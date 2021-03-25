@@ -1,0 +1,14 @@
+#!/bin/bash
+. /etc/os-release
+
+HOME_DEVICE=/dev/disk/by-label/$name-home
+
+# abort while no home exists
+if ! [ -L $HOME_DEVICE ]; then exit; fi
+
+# mount user home
+mount $HOME_DEVICE /home/user
+
+# populate user home
+mkdir -p /home/user/.config/autostart/
+cp /usr/share/applications/live-launcher.desktop /home/user/.config/autostart/

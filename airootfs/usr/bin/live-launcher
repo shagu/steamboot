@@ -1,0 +1,27 @@
+#!/bin/bash
+. /etc/os-release
+
+while ! [ -L /dev/disk/by-label/$ID-home ]; do
+  gui=`zenity --question \
+    --title="$NAME Setup" \
+    --width=480 \
+    --text="<b>Welcome to $PRETTY_NAME!</b> \
+
+      $NAME was not able to find a valid home directory.
+      You will need to create a partition with the label: <b>"$ID-home"</b>
+
+      Do you want to start a partition manager now?" \
+    --ok-label="Start Partition Manager" \
+    --cancel-label="Cancel"`
+  # install mode
+  if [ "$?" = "0" ]; then
+    gparted
+  else
+    zenity --info --title="$NAME Live" --width=240 \
+      --text="<b>Live Mode</b>\n\nYou have 256MB of volatile storage."
+    exit
+  fi
+done
+
+# launch steam
+steam-runtime -bigpicture

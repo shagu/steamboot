@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Live Launcher
+Exec=/bin/live-launcher
+Terminal=false
+Type=Application
