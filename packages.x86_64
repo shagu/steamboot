@@ -7,3 +7,57 @@ mkinitcpio
 mkinitcpio-archiso
 openssh
 syslinux
+
+# utils
+vim
+htop
+
+# xorg
+xorg
+xorg-drivers
+xorg-apps
+
+# vulkan
+vulkan-intel
+vulkan-radeon
+vkd3d
+
+# desktop
+gdm
+gnome
+gnome-extra
+
+# networking
+networkmanager
+avahi
+
+# steam
+steam
+
+# media
+kodi
+gst-plugins-ugly
+gst-plugins-bad
+gst-libav
+ffmpeg
+
+# windows
+wine
+wine-mono
+wine_gecko
+
+# fonts
+ttf-droid
+ttf-dejavu
+gnu-free-fonts
+ttf-liberation
+ttf-ubuntu-font-family
+
+# multilib
+lib32-vulkan-intel
+lib32-vulkan-radeon
+lib32-openssl
+lib32-gnutls
+lib32-mpg123
+lib32-libltdl
+lib32-vkd3d
