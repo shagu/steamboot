@@ -1,7 +1,7 @@
 all: clean iso
 
 clean:
-	rm -rf /tmp/steamlinux-tmp
+	rm -rf /tmp/steamlinux-tmp out
 
 iso:
 	mkarchiso -v -w /tmp/steamlinux-tmp .
