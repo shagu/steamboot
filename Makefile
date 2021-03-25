@@ -1,7 +1,7 @@
 all: clean iso
 
 clean:
-	rm -rf tmp out
+	rm -rf tmp/* out/*
 
 iso:
 	mkarchiso -v -w tmp .
