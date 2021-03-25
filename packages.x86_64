@@ -11,6 +11,7 @@ syslinux
 # utils
 vim
 htop
+gparted
 
 # xorg
 xorg
