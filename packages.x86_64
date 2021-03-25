@@ -22,6 +22,11 @@ vulkan-intel
 vulkan-radeon
 vkd3d
 
+# nvidia
+nvidia
+nvidia-utils
+lib32-nvidia-utils
+
 # desktop
 gdm
 gnome
