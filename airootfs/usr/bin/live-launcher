@@ -1,6 +1,11 @@
 #!/bin/bash
 . /etc/os-release
 
+live () {
+  zenity --info --title="$NAME Live" --width=240 \
+    --text="<b>Live Mode</b>\n\nYou have 256MB of volatile storage."
+}
+
 while ! [ -L /dev/disk/by-label/$ID-home ]; do
   gui=`zenity --question \
     --title="$NAME Setup" \
@@ -16,9 +21,27 @@ while ! [ -L /dev/disk/by-label/$ID-home ]; do
   # install mode
   if [ "$?" = "0" ]; then
     gparted
+
+    if ! [ -L /dev/disk/by-label/$ID-home ]; then
+      zenity --warning --title="$NAME Setup" \
+        --text="No label named <b>$ID-home</b> could be found."
+    else
+      zenity --question --title="$NAME Setup" \
+        --text="<b>Success!</b>\nA reboot is required to complete the installation." \
+        --ok-label="Reboot" \
+        --cancel-label="Cancel"
+
+      if [ "$?" = "0" ]; then
+        # reboot system
+        reboot
+      else
+        # enter live session
+        live
+        exit
+      fi
+    fi
   else
-    zenity --info --title="$NAME Live" --width=240 \
-      --text="<b>Live Mode</b>\n\nYou have 256MB of volatile storage."
+    live
     exit
   fi
 done
