@@ -4,7 +4,10 @@
 HOME_DEVICE=/dev/disk/by-label/$ID-home
 
 # abort while no home exists
-if ! [ -L $HOME_DEVICE ]; then exit; fi
+if mountpoint /home/user &> /dev/null; then
+  echo "Already mounted and set up."
+  exit
+fi
 
 # mount user home
 mount $HOME_DEVICE /home/user
@@ -13,3 +16,10 @@ chown user:user /home/user
 # populate user home
 mkdir -p /home/user/.config/autostart/
 cp /usr/share/applications/live-launcher.desktop /home/user/.config/autostart/
+
+# save/reload network settings
+mkdir -p /home/user/.network-connections
+cp -f /etc/NetworkManager/system-connections/* /home/user/.network-connections/
+rm -rf /etc/NetworkManager/system-connections
+ln -s /home/user/.network-connections/ /etc/NetworkManager/system-connections
+systemctl restart NetworkManager
