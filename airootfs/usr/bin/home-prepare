@@ -1,7 +1,7 @@
 #!/bin/bash
 . /etc/os-release
 
-HOME_DEVICE=/dev/disk/by-label/$name-home
+HOME_DEVICE=/dev/disk/by-label/$NAME-home
 
 # abort while no home exists
 if ! [ -L $HOME_DEVICE ]; then exit; fi
