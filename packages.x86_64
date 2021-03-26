@@ -18,6 +18,10 @@ xterm
 gparted
 mesa-demos
 
+# browser
+chromium
+chrome-gnome-shell
+
 # xorg
 xorg
 xorg-drivers
