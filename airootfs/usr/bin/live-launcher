@@ -27,13 +27,14 @@ while ! [ -L /dev/disk/by-label/$ID-home ]; do
         --text="No label named <b>$ID-home</b> could be found."
     else
       zenity --question --title="$NAME Setup" \
-        --text="<b>Success!</b>\nA reboot is required to complete the installation." \
-        --ok-label="Reboot" \
+        --text="<b>Success!</b>\nA Restart is required to complete the installation." \
+        --ok-label="Restart" \
         --cancel-label="Cancel"
 
       if [ "$?" = "0" ]; then
         # reboot system
-        reboot
+        sudo /bin/home-prepare
+        sudo systemctl restart gdm
       else
         # enter live session
         live
