@@ -67,6 +67,8 @@ ttf-dejavu
 gnu-free-fonts
 ttf-liberation
 ttf-ubuntu-font-family
+noto-fonts
+noto-fonts-emoji
 
 # multilib
 lib32-mesa-demos
