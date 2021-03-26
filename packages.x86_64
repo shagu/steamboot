@@ -8,11 +8,15 @@ mkinitcpio-archiso
 openssh
 syslinux
 
+# system
+linux-firmware
+
 # utils
 vim
 htop
 xterm
 gparted
+mesa-demos
 
 # xorg
 xorg
@@ -61,6 +65,7 @@ ttf-liberation
 ttf-ubuntu-font-family
 
 # multilib
+lib32-mesa-demos
 lib32-vulkan-intel
 lib32-vulkan-radeon
 lib32-openssl
