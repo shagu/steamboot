@@ -1,0 +1,8 @@
+[Unit]
+Description=Live Session Proxy
+
+[Service]
+ExecStart=/bin/session-proxy
+
+[Install]
+WantedBy=multi-user.target

@@ -1,9 +1,0 @@
-[Unit]
-Description=Prepare home directory
-Before=gdm.service
-
-[Service]
-ExecStart=/bin/home-prepare
-
-[Install]
-WantedBy=multi-user.target

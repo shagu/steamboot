@@ -1,0 +1,39 @@
+#!/bin/bash
+. /etc/os-release
+
+HOME_DEVICE=/dev/disk/by-label/$ID-home
+
+# make sure gdm is not started
+echo "Stopping GDM"
+systemctl stop gdm
+
+# check if user home is existing
+echo "Checking for /home/user mountpoint"
+if [ -L $HOME_DEVICE ]; then
+  echo "Found \"$ID-home\" device"
+
+  if ! mountpoint /home/user &> /dev/null; then
+    # mount user home
+    echo "Mounting to /home/user"
+    mount $HOME_DEVICE /home/user
+    chown user:user /home/user
+
+    # populate user home
+    echo "Populate autostart directory"
+    mkdir -p /home/user/.config/autostart/
+    cp /usr/share/applications/live-launcher.desktop /home/user/.config/autostart/
+
+    # save/reload network settings
+    echo "Save and reload network settings"
+    mkdir -p /home/user/.network-connections
+    cp -f /etc/NetworkManager/system-connections/* /home/user/.network-connections/
+    rm -rf /etc/NetworkManager/system-connections
+    ln -s /home/user/.network-connections/ /etc/NetworkManager/system-connections
+    systemctl restart NetworkManager
+  else
+    echo "-> Already mounted."
+  fi
+fi
+
+echo "Starting GDM"
+systemctl start gdm
