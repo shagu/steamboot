@@ -34,7 +34,7 @@ if [ -L $HOME_DEVICE ]; then
     ln -s /home/user/.network-connections/ /etc/NetworkManager/system-connections
     systemctl restart NetworkManager
   else
-    echo "-> Already mounted."
+    echo "\"$ID-home\" already mounted."
   fi
 fi
 
