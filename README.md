@@ -17,6 +17,14 @@ All you need is a PC with a local partition that can be used as your steam home 
 * **GParted** - Resize Partitions directly from the Live ISO
 * **Drivers** - NVIDIA, AMD and Intel Graphic Drivers Included
 
+## Getting Started
+
+1. Download the latest ISO from the [Release Page](https://github.com/shagu/steamboot/releases) (tbd)
+2. Write it to your USB drive: `dd if=steamboot-*-x86_64.iso of=/dev/sdX bs=4M conv=fsync`
+3. Plug your USB drive into the PC and reboot
+4. Create a `steamboot-home` partition when being asked
+5. Wait & Enjoy
+
 ## Build
 
 1. Install all dependencies
