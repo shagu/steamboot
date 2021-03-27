@@ -1,5 +1,7 @@
 # steamboot
 
+**WARNING: This project is under development and not ready yet.**
+
 <img src="res/controller.png" float="right" align="right">
 
 An [Arch Linux](https://archlinux.org/) based [Live USB](https://en.wikipedia.org/wiki/Live_USB) project, booting your HTPC into [Steam](https://store.steampowered.com/).
