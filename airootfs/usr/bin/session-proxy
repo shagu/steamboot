@@ -7,6 +7,9 @@ HOME_DEVICE=/dev/disk/by-label/$ID-home
 echo "Stopping GDM"
 systemctl stop gdm
 
+echo "Generating Locales"
+locale-gen
+
 # check if user home is existing
 echo "Checking for /home/user mountpoint"
 if [ -L $HOME_DEVICE ]; then
