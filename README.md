@@ -16,3 +16,35 @@ All you need is a PC with a local partition that can be used as your steam home 
 * **Media Center** - Pre-installed [Kodi](https://kodi.tv/) media center software
 * **GParted** - Resize Partitions directly from the Live ISO
 * **Drivers** - NVIDIA, AMD and Intel Graphic Drivers Included
+
+## Build
+
+1. Install all dependencies
+
+```
+pacman -Sy git archiso qemu edk2-ovmf
+```
+
+2. Clone the repository
+
+```
+https://github.com/shagu/steamboot.git
+```
+
+3. Build the Live ISO
+
+```
+make
+```
+
+4. Test in QEMU (bios)
+
+```
+make bios
+```
+
+5. Test in QEMU (uefi)
+
+```
+make uefi
+```
