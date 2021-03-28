@@ -40,7 +40,6 @@ lib32-nvidia-utils
 # desktop
 gdm
 gnome
-gnome-extra
 
 # networking
 networkmanager
