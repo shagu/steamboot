@@ -19,7 +19,7 @@ All you need is a PC with a local partition that can be used as your steam home 
 
 ## Getting Started
 
-1. Download the latest ISO from the [Release Page](https://github.com/shagu/steamboot/releases) (tbd)
+1. Download the latest ISO from the [Release Page](https://github.com/shagu/steamboot/releases)
 2. Write it to your USB drive: `dd if=steamboot-*-x86_64.iso of=/dev/sdX bs=4M conv=fsync`
 3. Plug your USB drive into the PC and reboot
 4. Create a `steamboot-home` partition when being asked
@@ -30,19 +30,19 @@ All you need is a PC with a local partition that can be used as your steam home 
 1. Install all dependencies
 
 ```
-pacman -Sy git archiso qemu edk2-ovmf
+sudo pacman -Sy git archiso qemu edk2-ovmf
 ```
 
 2. Clone the repository
 
 ```
-https://github.com/shagu/steamboot.git
+git clone https://github.com/shagu/steamboot.git
 ```
 
 3. Build the Live ISO
 
 ```
-make
+sudo make
 ```
 
 4. Test in QEMU (bios)
